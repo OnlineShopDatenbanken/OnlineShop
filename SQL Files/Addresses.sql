@@ -1,0 +1,37 @@
+CREATE TABLE IF NOT EXISTS Addresses (
+    id SERIAL PRIMARY KEY,
+    houseNo INTEGER NOT NULL,
+    additionalAdressInfo VARCHAR,
+    street VARCHAR,
+    state VARCHAR,
+    city VARCHAR,
+    postcalCode NUMERIC,
+    countryCode VARCHAR,
+    FOREIGN KEY(countryCode) REFERENCES Countries(code)
+);
+
+INSERT INTO Addresses(houseNo, additionalAddressInfo, street, state, city, postalCode, countryCode) VALUES
+(76, '', 'Lietzenburger Straße', 'Niedersachsen', 'Georgsdorf', 49828, 'DE'),
+(83, '', 'Paderborner Strasse', 'Bayern', 'Wiedergeltingen', 86879, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(89, '', 'Büsingstrasse', 'Bayern', 'Gilching', 82195, 'DE'),
+(54, '', 'Kastanienallee', 'Schleswig-Holstein', 'Lunden', 25771, 'DE'),
+(81, '', 'Hollander Strasse', 'Rheinland-Pfalz', 'Birlenbach', 65626, 'DE'),
+(90, '', 'Knesebeckstraße', 'Nordrhein-Westfalen', 'Marl', 45770, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE'),
+(18, '', 'Brandenburgische Strasse', 'Rheinland-Pfalz', 'Klingenmünster', 76889, 'DE');
