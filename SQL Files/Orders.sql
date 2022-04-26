@@ -235,5 +235,3 @@ SELECT Orders.id, Orders.customerId, SUM(OrderItems_Prices.price) as totalPrice
 FROM Orders, OrderItems_Prices
 WHERE Orders.id = OrderItems_Prices.orderId
 GROUP BY Orders.id;
-
-SELECT * FROM Orders_Complete;
