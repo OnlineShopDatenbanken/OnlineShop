@@ -17,3 +17,23 @@ CREATE TABLE IF NOT EXISTS WarehouseItems (
     FOREIGN KEY (productId) REFERENCES Products(id),
     PRIMARY KEY (warehouseId, productId)
 );
+
+INSERT INTO Warehouses(addressId, totalNoOfEmployees)  VALUES
+(26, 10),
+(50, 25),
+(2, 5),
+(5, 10);
+
+INSERT INTO WarehouseItems VALUES
+(4,3,1),
+(1,5,134),
+(2,3,92),
+(3,4,40),
+(2,11,32),
+(3,11,26),
+(1,11,117),
+(4,9,8),
+(4,10,76),
+(4,6,16),
+(1,3,127),
+(3,2,5);
