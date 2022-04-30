@@ -6,7 +6,7 @@ function showCustomersChart (noOfNewCustomersPerMonth, noOfCustomersPerMonth, mo
 {
     const ctx2 = document.getElementById('customerDevelopment').getContext('2d');
 
-    chartData = {
+    const chartData = {
             labels: months,
             datasets: [{
                 type: 'bar',
