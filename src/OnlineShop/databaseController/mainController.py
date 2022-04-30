@@ -1,10 +1,17 @@
 import psycopg2 as pg2
-import customerController
+from . import customerController
 
-def main(): # temporary solution
-    conn = pg2.connect(database="postgres", user="postgres", password="admin", host="localhost", port="5432")
-    cur = conn.cursor()
-    a = 5
+
+class mainController:
+    def __init__(self):
+        self.conn = pg2.connect(database="postgres", user="postgres", password="admin", host="localhost", port="5432")
+        self.cur = self.conn.cursor()
+        self.customerContr = customerController.customerController(self.cur)
+
+#def main(): # temporary solution
+#    conn = pg2.connect(database="postgres", user="postgres", password="admin", host="localhost", port="5432")
+#    cur = conn.cursor()
+
     # cur.execute("SELECT * FROM Customers WHERE id = %s;", [a])
 
     # Get
@@ -16,8 +23,6 @@ def main(): # temporary solution
     #print(cur.fetchall())
 
     #print(customerController.getMinAndMaxJoiningYear(cur))
-    minAndMaxYear = customerController.getMinAndMaxJoiningYear(cur)
-    print(customerController.getNoOfCustomersPerMonth(cur))
 
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+#    main()
