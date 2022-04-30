@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <style>
+        .sidebar {
+
+            width: 200px;
+            height: 100%;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #1A1E23;
+        }
+        li {
+            padding: 35% 0;
+        }
+        a {
+            border-radius: 10px;
+            width: border-box;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            padding: 10px;
+        }
+        a:hover {
+            background: lightslategrey;
+        }
+    </style>
+</head>
+<body>
+<h1>Online Shop Overview</h1>
+<div class="sidebar" style="color: aliceblue">
+    <ul style="display: flex;
+               flex-direction: column;
+               align-items: start;
+               list-style-type: none;">
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Orders</a></li>
+        <li><a href="#">Users</a></li>
+    </ul>
+</div>
+</body>
+</html>
