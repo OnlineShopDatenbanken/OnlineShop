@@ -30,3 +30,15 @@ class customerController:
                                 GROUP BY date_part('month', customerSince), date_part('year', customerSince)
                                 ORDER BY date_part('year', customerSince), date_part('month', customerSince)""")
         return self.cur.fetchall()
+
+    def getPercentageOfCustomersWithMinOneOrder(self):
+        self.cur.execute("""SELECT Customers.id, Count(orders.id)
+                            FROM customers
+                            LEFT JOIN orders
+                            ON Orders.customerId = customers.Id
+                            GROUP BY Customers.id;""")
+        res = self.cur.fetchall()
+        numberOfCustomers = len(res)
+        numberOfCustomersThatHaveOrderedSomething = len([i for i in res if i[1] != 0]) # remove zeroes
+
+        return (numberOfCustomersThatHaveOrderedSomething/numberOfCustomers)*100

@@ -2,55 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Online Shop - Customers</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    {%load static %}
+    <script src="{% static 'customers.js' %}"></script>
 </head>
 <body>
     <!-- No of new customers per month and total nuber of customers per month><!-->
-    <canvas id="noOfNewCostumersPerMonth" width="100" height="30vh"></canvas>
-    <script>
-    var noOfNewCustomersPerMonth = {{ noOfNewCustomersPerMonth|safe }};
-    var months = {{ months|safe }}
-    var noOfCustomersPerMonth = {{ noOfCustomersPerMonth|safe }};
+    <canvas id="customerDevelopment" width="100" height="30vh">
+        <script>showCustomersChart({{ graphData.noOfNewCustomersPerMonth|safe }},
+            {{ graphData.noOfCustomersPerMonth|safe }}, {{ graphData.months|safe }});</script>
+    </canvas>
 
-    const ctx2 = document.getElementById('noOfNewCostumersPerMonth').getContext('2d');
-    const myChart2 = new Chart(ctx2, {
-        type: 'line',
-        data: {
-            labels: months,
-            datasets: [{
-                type: 'bar',
-                label: '# of new customers',
-                data: noOfNewCustomersPerMonth,
-                backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)'
-                ],
-                borderWidth: 1
-            }, {
-                type: 'line',
-                label: '# of customers',
-                data: noOfCustomersPerMonth,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)'
-                ],
-                borderWidth: 1
-            },
-            ]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-    </script>
+    <div>{{ percentageOfCustomersWithMinOrder|safe }}% of customers have ordered at least once</div>
+    <div>The remaining {{ percentageOfCustomersWithNoOrder|safe }}% have not ordered anything yet</div>
 </body>
 </html>
