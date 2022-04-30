@@ -9,6 +9,7 @@ def home(request):
 def customers(request):
 
     noOfCustomersPerMonthTuples = contr.customerContr.getNoOfCustomersPerMonth()
+    noOfNewCustomersPerMonthTuples = contr.customerContr.getNoOfNewCustomersPerMonth()
 
     months = []
     for i in range(len(noOfCustomersPerMonthTuples)):
@@ -16,6 +17,7 @@ def customers(request):
 
     dict = {
         'noOfCustomersPerMonth': [i[0]for i in noOfCustomersPerMonthTuples],
+        'noOfNewCustomersPerMonth': [i[0]for i in noOfNewCustomersPerMonthTuples],
         'months': months
     }
 
