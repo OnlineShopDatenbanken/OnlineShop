@@ -16,5 +16,8 @@
 
     <div>{{ percentageOfCustomersWithMinOrder|safe }}% of customers have ordered at least once</div>
     <div>The remaining {{ percentageOfCustomersWithNoOrder|safe }}% have not ordered anything yet</div>
+    <table id="topFiveCustomers">
+        <script>populateTopFiveCustomersList({{ topFiveCustomers|safe }})</script>
+    </table>
 </body>
 </html>

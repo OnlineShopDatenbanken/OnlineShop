@@ -19,16 +19,16 @@ function showCustomersChart (noOfNewCustomersPerMonth, noOfCustomersPerMonth, mo
                     'rgba(54, 162, 235, 1)'
                 ],
                 yAxisID: 'noOfNewCustomersPerMonth',
-                borderWidth: 1
+                borderWidth: 0
             }, {
                 type: 'line',
                 label: 'total # of customers',
                 data: noOfCustomersPerMonth,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)'
+                    'rgba(54, 162, 235, 0.2)'
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)'
+                    'rgba(54, 162, 235, 1)'
                 ],
                 borderWidth: 3,
                 yAxisID: 'noOfCustomersPerMonth'
@@ -63,4 +63,45 @@ function showCustomersChart (noOfNewCustomersPerMonth, noOfCustomersPerMonth, mo
             }
         }
     });
+}
+
+function populateTopFiveCustomersList(topFiveCustomers)
+{
+    table = document.getElementById("topFiveCustomers")
+    trHeader = document.createElement("tr")
+    thId = document.createElement("th")
+    thId.textContent = "ID"
+    thFirstName = document.createElement("th")
+    thFirstName.textContent = "First Name"
+    thLastName = document.createElement("th")
+    thLastName.textContent = "Last Name"
+    thNoOfOrders = document.createElement("th")
+    thNoOfOrders.textContent = "# of Orders"
+
+    trHeader.appendChild(thId)
+    trHeader.appendChild(thFirstName)
+    trHeader.appendChild(thLastName)
+    trHeader.appendChild(thNoOfOrders)
+
+
+    table.appendChild(trHeader)
+    for (let i = 0; i < topFiveCustomers.length; i++)
+    {
+        trCurr = document.createElement("tr")
+        thCurrId = document.createElement("th")
+        thCurrId.textContent = topFiveCustomers[i].id
+        thCurrFirstName = document.createElement("th")
+        thCurrFirstName.textContent = topFiveCustomers[i].firstname
+        thCurrLastName = document.createElement("th")
+        thCurrLastName.textContent = topFiveCustomers[i].lastname
+        thCurrNoOfOrders = document.createElement("th")
+        thCurrNoOfOrders.textContent = topFiveCustomers[i].nooforders
+
+        trCurr.appendChild(thCurrId)
+        trCurr.appendChild(thCurrFirstName)
+        trCurr.appendChild(thCurrLastName)
+        trCurr.appendChild(thCurrNoOfOrders)
+        table.appendChild(trCurr)
+    }
+
 }

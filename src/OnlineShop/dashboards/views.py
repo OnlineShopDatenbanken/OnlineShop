@@ -12,6 +12,7 @@ def customers(request):
     noOfNewCustomersPerMonthTuples = contr.customerContr.getNoOfNewCustomersPerMonth()
     percentageOfCustomersWithMinOneOrder = contr.customerContr.getPercentageOfCustomersWithMinOneOrder()
     percentageOfCustomersWithNoOrder = (1 - (percentageOfCustomersWithMinOneOrder/100))*100
+    topFiveCustomers = contr.customerContr.getTopFiveCustomers()
 
     months = []
     for i in range(len(noOfCustomersPerMonthTuples)):
@@ -25,6 +26,7 @@ def customers(request):
         },
         'percentageOfCustomersWithMinOrder': percentageOfCustomersWithMinOneOrder,
         'percentageOfCustomersWithNoOrder': percentageOfCustomersWithNoOrder,
+        'topFiveCustomers': topFiveCustomers
     }
 
     return render(request, 'customers.html', context=dict)

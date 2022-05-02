@@ -8,7 +8,8 @@
     <script src="{% static 'products.js' %}"></script>
 </head>
 <body>
-    <canvas id="revenuePerCategory" width="500">
+    <div id="totalRevenue">Total revenue: {{ graphData.totalRevenue|safe }}$</div>
+    <canvas id="revenuePerCategory" width="800">
         <script>showRevenueChart({{ graphData.productCategories|safe }},
             {{ graphData.revenues|safe }});</script>
     </canvas>

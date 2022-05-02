@@ -42,3 +42,19 @@ class customerController:
         numberOfCustomersThatHaveOrderedSomething = len([i for i in res if i[1] != 0]) # remove zeroes
 
         return (numberOfCustomersThatHaveOrderedSomething/numberOfCustomers)*100
+
+    def getTopFiveCustomers(self):
+        self.cur.execute("""SELECT Customers.id, customers.firstName, customers.lastName, Count(orders.id) as noOfOrders
+                            FROM customers
+                            LEFT JOIN orders
+                            ON Orders.customerId = customers.Id
+                            GROUP BY Customers.id
+                            ORDER BY noOfOrders DESC;""")
+        return self.convertToDictionary(self.cur.fetchmany(5))
+
+    def convertToDictionary(self, res):
+        columns = [col[0] for col in self.cur.description]
+        return [
+            dict(zip(columns, row))
+            for row in res
+        ]

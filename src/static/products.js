@@ -24,8 +24,8 @@ function showRevenueChart(productCategories, revenues)
         type: 'doughnut',
         data: chartData,
         options: {
-            maintainAspectRatio: false,
-            responsive: true
+            //maintainAspectRatio: false,
+            responsive: false
         }
     });
 }
