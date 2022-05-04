@@ -83,6 +83,7 @@ function populateTopFiveCustomersList(topFiveCustomers)
     trHeader.appendChild(thLastName)
     trHeader.appendChild(thNoOfOrders)
 
+    console.log(topFiveCustomers)
 
     table.appendChild(trHeader)
     for (let i = 0; i < topFiveCustomers.length; i++)

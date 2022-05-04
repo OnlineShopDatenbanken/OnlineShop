@@ -1,5 +1,8 @@
+import json
+
 import psycopg2 as pg2
 from django.db import models
+import numpy as np
 
 class customerController:
     def __init__(self, cur):
@@ -51,6 +54,23 @@ class customerController:
                             GROUP BY Customers.id
                             ORDER BY noOfOrders DESC;""")
         return self.convertToDictionary(self.cur.fetchmany(5))
+
+    def getNumOfCustomersPerCountry(self):
+        #self.cur.execute("""SELECT countries.code,
+        #                    (SELECT count(addresses.countryCode)
+        #                    FROM addresses
+        #                    LEFT JOIN customers
+        #                    ON customers.addressId = addresses.id)
+        #                    FROM countries
+        #                    GROUP BY countries.code
+        #""")
+        self.cur.execute("""SELECT addresses.countryCode, count(addresses.countryCode)
+                             FROM addresses
+                             RIGHT JOIN customers
+                             ON customers.addressId = addresses.id
+                             GROUP BY addresses.countryCode""")
+        #return self.convertToDictionary(self.cur.fetchall())
+        return json.dumps(np.asarray(self.cur.fetchall()).tolist())
 
     def convertToDictionary(self, res):
         columns = [col[0] for col in self.cur.description]
