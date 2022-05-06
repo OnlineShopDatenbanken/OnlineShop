@@ -2,6 +2,11 @@ function Init()
 {
 }
 
+function setNoOfCustomers(noOfCustomersPerMonth) {
+    noOfCustomersDiv = document.getElementById("noOfCustomers");
+    noOfCustomersDiv.textContent += noOfCustomersPerMonth[noOfCustomersPerMonth.length-1];
+}
+
 function showCustomersChart (noOfNewCustomersPerMonth, noOfCustomersPerMonth, months)
 {
     const ctx2 = document.getElementById('customerDevelopment').getContext('2d');
@@ -13,7 +18,7 @@ function showCustomersChart (noOfNewCustomersPerMonth, noOfCustomersPerMonth, mo
                 label: '# of new customers',
                 data: noOfNewCustomersPerMonth,
                 backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)'
+                    'rgba(120, 206, 192, 0.3)'
                 ],
                 borderColor: [
                     'rgba(54, 162, 235, 1)'
@@ -25,10 +30,10 @@ function showCustomersChart (noOfNewCustomersPerMonth, noOfCustomersPerMonth, mo
                 label: 'total # of customers',
                 data: noOfCustomersPerMonth,
                 backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)'
+                    'rgba(120, 206, 192, 0.3)'
                 ],
                 borderColor: [
-                    'rgba(54, 162, 235, 1)'
+                    'rgba(73, 190, 170, 1)'
                 ],
                 borderWidth: 3,
                 yAxisID: 'noOfCustomersPerMonth'
@@ -105,4 +110,26 @@ function populateTopFiveCustomersList(topFiveCustomers)
         table.appendChild(trCurr)
     }
 
+}
+
+function drawRegionsMap(numOfCustomersPerCountry) {
+
+    rawData = Array.from(numOfCustomersPerCountry);
+    let adaptedData = [];
+    rawData.forEach(element =>
+        adaptedData.push([element['country'], element['count']]));
+    header = [['Country', '# of customers']];
+
+    let myData = Array.from(header.concat(adaptedData));
+    console.log(myData);
+
+    var data = google.visualization.arrayToDataTable(myData);
+
+    var options = {
+        colorAxis: {colors: ['#c0eced', '#4374e0']} // orange to blue
+    };
+
+    var chart = new google.visualization.GeoChart(document.getElementById('worldMap'));
+
+    chart.draw(data, options);
 }

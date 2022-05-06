@@ -64,13 +64,18 @@ class customerController:
         #                    FROM countries
         #                    GROUP BY countries.code
         #""")
-        self.cur.execute("""SELECT addresses.countryCode, count(addresses.countryCode)
+        self.cur.execute("""SELECT addresses.countryCode as country, count(addresses.countryCode) as count
                              FROM addresses
                              RIGHT JOIN customers
                              ON customers.addressId = addresses.id
                              GROUP BY addresses.countryCode""")
-        #return self.convertToDictionary(self.cur.fetchall())
-        return json.dumps(np.asarray(self.cur.fetchall()).tolist())
+        res = self.convertToDictionary(self.cur.fetchall())
+
+        # convert count values to int (otherwise is string)
+        for dicts in res:
+            dicts['count'] = int(dicts['count'])
+
+        return res
 
     def convertToDictionary(self, res):
         columns = [col[0] for col in self.cur.description]
