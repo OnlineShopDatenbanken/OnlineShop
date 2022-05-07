@@ -9,6 +9,7 @@ function setNoOfCustomers(noOfCustomersPerMonth) {
 
 function showCustomersChart (noOfNewCustomersPerMonth, noOfCustomersPerMonth, months)
 {
+    console.log(noOfNewCustomersPerMonth);
     const ctx2 = document.getElementById('customerDevelopment').getContext('2d');
 
     const chartData = {

@@ -20,12 +20,20 @@ class customerController:
     def getNoOfCustomersPerMonth(self):
         # does not calculate the accumulated value
         valuesPerMonth = self.getNoOfNewCustomersPerMonth()
-
         # calculate the accumulated value for each month
         for i in range(len(valuesPerMonth)):
             if (i > 0):
                 valuesPerMonth[i] = (valuesPerMonth[i][0]+valuesPerMonth[i-1][0], valuesPerMonth[i][1], valuesPerMonth[i][2])
         return valuesPerMonth
+
+    def getNoOfNewCustomersPar(self, minAge, maxAge):
+        self.cur.execute("""SELECT COUNT(*) as totalNoOfCustomers, date_part('month', customerSince) as month, date_part('year', customerSince) as year
+                                        FROM Customers
+                                        WHERE customers.age >= %s
+                                        AND customers.age <= %s
+                                        GROUP BY date_part('month', customerSince), date_part('year', customerSince)
+                                        ORDER BY date_part('year', customerSince), date_part('month', customerSince)""", (minAge, maxAge))
+        return self.cur.fetchall()
 
     def getNoOfNewCustomersPerMonth(self):
         self.cur.execute("""SELECT COUNT(*) as totalNoOfCustomers, date_part('month', customerSince) as month, date_part('year', customerSince) as year
@@ -56,14 +64,6 @@ class customerController:
         return self.convertToDictionary(self.cur.fetchmany(5))
 
     def getNumOfCustomersPerCountry(self):
-        #self.cur.execute("""SELECT countries.code,
-        #                    (SELECT count(addresses.countryCode)
-        #                    FROM addresses
-        #                    LEFT JOIN customers
-        #                    ON customers.addressId = addresses.id)
-        #                    FROM countries
-        #                    GROUP BY countries.code
-        #""")
         self.cur.execute("""SELECT addresses.countryCode as country, count(addresses.countryCode) as count
                              FROM addresses
                              RIGHT JOIN customers

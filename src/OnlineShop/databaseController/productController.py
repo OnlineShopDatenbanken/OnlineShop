@@ -12,3 +12,11 @@ class productController:
                             ON products.id = orderitems_prices.productId
                             GROUP BY products.category;""")
         return self.cur.fetchall()
+
+    def getAverageProductRating(self):
+        self.cur.execute("""SELECT Products.title, CAST(AVG(amountofstarsgiven) AS DECIMAL(12,2))
+                            FROM customerreviews
+                            LEFT JOIN products
+                            ON products.id = customerreviews.productid
+                            GROUP BY products.title
+                            ;""")

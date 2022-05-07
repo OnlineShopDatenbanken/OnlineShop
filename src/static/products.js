@@ -12,9 +12,11 @@ function showRevenueChart(productCategories, revenues)
         label: 'Revenue per category',
         data: revenues,
         backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-          'rgb(255, 205, 86)'
+          '#46AFA1',
+          '#8E94F2',
+          '#EDFF7A',
+          '#7A306C',
+          '#EF3054'
         ],
         hoverOffset: 4
       }]

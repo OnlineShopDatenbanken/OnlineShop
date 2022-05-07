@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300" rel="stylesheet">
     {%load static %}
     <script src="{% static 'customers.js' %}"></script>
-    <link rel="stylesheet" href="{%  static 'customers.css' %}">
+    <link rel="stylesheet" href="{%  static 'main.css' %}">
     <script type="text/javascript">
       google.charts.load('current', {
         'packages':['geochart'],
@@ -47,6 +47,14 @@
     <!-- No of new customers per month and total nuber of customers per month><!-->
     <div class="container">
         <h2 class="containerHeading">Customer Growth</h2>
+        <form action="#" method="get">
+            <label>Only Show Customers From Age
+                <input type="number" id="minAge">
+                <span>to</span>
+                <input type="number" id="maxAge">
+            </label>
+            <button type="submit" value="Click" name="submitBtn">Submit</button>
+        </form>
         <canvas id="customerDevelopment" class="content" width="100" height="30vh">
             <script>showCustomersChart({{ graphData.noOfNewCustomersPerMonth|safe }},
                 {{ graphData.noOfCustomersPerMonth|safe }}, {{ graphData.months|safe }});</script>

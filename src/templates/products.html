@@ -4,14 +4,24 @@
     <meta charset="UTF-8">
     <title>Online Shop - Products</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300" rel="stylesheet">
     {%load static %}
     <script src="{% static 'products.js' %}"></script>
+    <link rel="stylesheet" href="{%  static 'main.css' %}">
 </head>
 <body>
-    <div id="totalRevenue">Total revenue: {{ graphData.totalRevenue|safe }}$</div>
-    <canvas id="revenuePerCategory" width="800">
-        <script>showRevenueChart({{ graphData.productCategories|safe }},
-            {{ graphData.revenues|safe }});</script>
-    </canvas>
+    <h1>Products</h1>
+    <div class="container" id="productRevenueChart">
+        <h2 class="containerHeading">Revenue per Category</h2>
+        <div id="canvasContainer" class="content flex">
+            <canvas id="revenuePerCategory">
+                <script>showRevenueChart({{ graphData.productCategories|safe }},
+                    {{ graphData.revenues|safe }});</script>
+            </canvas>
+        </div>
+        <div id="totalRevenue" class="containerHeading">Total revenue: {{ graphData.totalRevenue|safe }}$</div>
+    </div>
 </body>
 </html>
