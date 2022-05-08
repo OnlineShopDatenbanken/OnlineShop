@@ -19,10 +19,19 @@ def customers(request):
     for i in range(len(noOfCustomersPerMonthTuples)):
         months.append(str(int(noOfCustomersPerMonthTuples[i][1])) + '/' + str(int(noOfCustomersPerMonthTuples[i][2])))
 
-    noOfCustomersPar = []
+    monthsRaw = []
+    for i in range(len(noOfCustomersPerMonthTuples)):
+        monthsRaw.append(tuple[noOfCustomersPerMonthTuples[i][1], noOfCustomersPerMonthTuples[i][2]])
 
     if (request.GET.get("submitBtn")):
-        noOfCustomersPar = contr.customerContr.getNoOfNewCustomersPar(request.GET.get("minAge"), request.GET.get("maxAge"))
+        minAge = request.GET.get("minAge")
+        maxAge = request.GET.get("maxAge")
+        if ((maxAge > 0) & (minAge >= 0) & (maxAge > minAge)):
+            noOfNewCustomersPerMonthTuples = contr.customerContr.getNoOfNewCustomersPerMonthParam(minAge, maxAge)
+            noOfCustomersPerMonthTuples = contr.customerContr.getNoOfCustomersPerMonthParam(minAge, maxAge)
+            months = []
+            for i in range(len(noOfCustomersPerMonthTuples)):
+                months.append(str(int(noOfCustomersPerMonthTuples[i][1])) + '/' + str(int(noOfCustomersPerMonthTuples[i][2])))
 
     dict = {
         'graphData': {
@@ -30,7 +39,6 @@ def customers(request):
             'noOfNewCustomersPerMonth': [i[0]for i in noOfNewCustomersPerMonthTuples],
             'months': months
         },
-        'noOfCustomersPar': noOfCustomersPar,
         'percentageOfCustomersWithMinOrder': percentageOfCustomersWithMinOneOrder,
         'percentageOfCustomersWithNoOrder': percentageOfCustomersWithNoOrder,
         'topFiveCustomers': topFiveCustomers,

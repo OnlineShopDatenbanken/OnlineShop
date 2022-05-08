@@ -26,7 +26,17 @@ class customerController:
                 valuesPerMonth[i] = (valuesPerMonth[i][0]+valuesPerMonth[i-1][0], valuesPerMonth[i][1], valuesPerMonth[i][2])
         return valuesPerMonth
 
-    def getNoOfNewCustomersPar(self, minAge, maxAge):
+    def getNoOfCustomersPerMonthParam(self, minAge, maxAge):
+        # does not calculate the accumulated value
+        valuesPerMonth = self.getNoOfNewCustomersPerMonthParam(minAge, maxAge)
+        # calculate the accumulated value for each month
+        for i in range(len(valuesPerMonth)):
+            if (i > 0):
+                valuesPerMonth[i] = (
+                valuesPerMonth[i][0] + valuesPerMonth[i - 1][0], valuesPerMonth[i][1], valuesPerMonth[i][2])
+        return valuesPerMonth
+
+    def getNoOfNewCustomersPerMonthParam(self, minAge, maxAge):
         self.cur.execute("""SELECT COUNT(*) as totalNoOfCustomers, date_part('month', customerSince) as month, date_part('year', customerSince) as year
                                         FROM Customers
                                         WHERE customers.age >= %s
