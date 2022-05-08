@@ -58,3 +58,11 @@ def products(request):
     }
 
     return render(request, 'products.html', context=dict)
+
+def orders(request):
+    allOrders = contr.orderContr.getAllOrders()
+
+    dict = {
+        'allOrders': allOrders
+    }
+    return render(request, 'orders.html', context=dict)
