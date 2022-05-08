@@ -11,3 +11,10 @@ class orderController:
     def getAllOrders(self):
         self.cur.execute("SELECT * FROM orders")
         return self.convertToDictionary(self.cur.fetchall())
+
+    def convertToDictionary(self, res):
+        columns = [col[0] for col in self.cur.description]
+        return [
+            dict(zip(columns, row))
+            for row in res
+        ]

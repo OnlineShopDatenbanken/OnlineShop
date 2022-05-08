@@ -8,7 +8,7 @@ class mainController:
         self.cur = self.conn.cursor()
         self.customerContr = customerController.customerController(self.cur)
         self.productContr = productController.productController(self.cur)
-        self.orderController = orderController.orderController(self.cur)
+        self.orderContr = orderController.orderController(self.cur)
 
 #def main(): # temporary solution
 #    conn = pg2.connect(database="postgres", user="postgres", password="admin", host="localhost", port="5432")
