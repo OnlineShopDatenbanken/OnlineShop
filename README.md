@@ -7,14 +7,12 @@ Run the following command:
 ```
 docker-compose up
 ```
-Next switch into the subfolder "src" and run the following command:
-```
-python manage.py runserver
-```
 The command should return:
 ```
 >> Starting development server at http://127.0.0.1:8000/
 ```
+The webserver for Django is now running.
+
 Click on the given http link and the website should now be running in your browser.
 
 ## Database Diagram
