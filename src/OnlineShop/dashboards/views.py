@@ -26,7 +26,7 @@ def customers(request):
     if (request.GET.get("submitBtn")):
         minAge = request.GET.get("minAge")
         maxAge = request.GET.get("maxAge")
-        if ((maxAge > 0) & (minAge >= 0) & (maxAge > minAge)):
+        if ((int(maxAge) > 0) & (int(minAge) >= 0) & (int(maxAge) > int(minAge))):
             noOfNewCustomersPerMonthTuples = contr.customerContr.getNoOfNewCustomersPerMonthParam(minAge, maxAge)
             noOfCustomersPerMonthTuples = contr.customerContr.getNoOfCustomersPerMonthParam(minAge, maxAge)
             months = []
