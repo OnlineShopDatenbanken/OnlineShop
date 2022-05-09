@@ -17,5 +17,5 @@ The command should return:
 ```
 Click on the given http link and the website should now be running in your browser.
 
-### Database Diagram
+## Database Diagram
 https://dbdiagram.io/d/62610fed1072ae0b6ac1b018
