@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  pythonproject:
+    image: pythonproject
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8000:8000
+
+  db:
+      image: postgres
+      container_name: postgres
+      restart: always
+      ports:
+        - 5432:5432
+      environment:
+        POSTGRES_PASSWORD: admin
+        PGDATA: /var/lib/postgresql/data/pgdata
+      volumes:
+        - ./postgres2:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

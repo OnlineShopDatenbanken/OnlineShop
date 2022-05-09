@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from ..databaseController import mainController as mainContr
-from decimal import *
+from decimal import Decimal
 
 contr = mainContr.mainController()
 
