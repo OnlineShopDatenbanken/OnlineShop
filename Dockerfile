@@ -1,3 +1,5 @@
+# This file is taken from https://sourcery.ai/blog/python-docker/ and modified
+
 FROM python:3.9-slim as base
 
 # Setup env
