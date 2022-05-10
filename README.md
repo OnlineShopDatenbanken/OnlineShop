@@ -9,7 +9,7 @@ For example:
 ```
 cd Users/Frederik/OnlineShop
 ```
-Then run the following commands:
+Then run the following command:
 ```
 cd src
 ```
@@ -39,7 +39,7 @@ The webserver for Django is now running.
 Click on the given http link with CTRL+Click and the website should open in your browser.
 
 ## How to uninstall
-### Run the following commands:
+Run the following commands in the root folder of this project:
 1. Delete the database server
 ```
 docker-compose down
