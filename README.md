@@ -10,7 +10,9 @@ For example:
 cd Users/Frederik/OnlineShop
 ```
 Then run the following commands:
-
+```
+cd src
+```
 ### Run the following commands:
 1. Create the database server
 ```
