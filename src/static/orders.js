@@ -13,4 +13,6 @@ function allOrdersList(allOrders) {
 
     thPrice = document.createElement("th");
     thPrice.textContent = "Price";
+
+    console.log(allOrders);
 }
