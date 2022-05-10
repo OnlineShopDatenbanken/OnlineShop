@@ -14,5 +14,16 @@ function allOrdersList(allOrders) {
     thPrice = document.createElement("th");
     thPrice.textContent = "Price";
 
+    trHeader.appendChild(thId);
+    trHeader.appendChild(thCustomer);
+    trHeader.appendChild(thPrice);
+
+    table.appendChild(trHeader);
+
+    for (let i = 0; i < allOrders.length; i++) {
+        tr = document.createElement("tr");
+        tr.setAttribute("id", allOrders[i].id);
+    }
+
     console.log(allOrders);
 }
