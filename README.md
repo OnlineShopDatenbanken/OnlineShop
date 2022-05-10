@@ -1,15 +1,26 @@
 # OnlineShop - Datenbanken Projekt
 
+## Prerequisites
+Have python and docker installed on your system.
+
 ## How to install
 Go into your terminal and switch to the directory where you have this project stored.
 
-Run the following command:
+Run the following commands:
 ```
 docker-compose up
 ```
-The command should return:
 ```
->> Starting development server at http://127.0.0.1:8000/
+pipenv install
+```
+```
+pipenv shell
+```
+```
+cd src
+```
+```
+python manage.py runserver
 ```
 The webserver for Django is now running.
 
