@@ -26,7 +26,8 @@ pipenv install
 ```
 pipenv shell
 ```
-4. Go to the directory where the manage.py file ist stored
+4. You are now running your commands inside the virtual environment.
+   Go to the directory where the manage.py file ist stored
 ```
 cd src
 ```
