@@ -11,7 +11,7 @@ Go into your terminal and switch to the directory where you have this project st
 ```
 docker-compose up
 ```
-2. Create a virtual python environment and install the packages from the Pipfile
+2. Create a virtual python environment and install the packages from the Pipfile (Make sure you are currently in the project folder before running this!)
 ```
 pipenv install
 ```
