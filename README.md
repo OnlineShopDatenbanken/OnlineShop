@@ -4,14 +4,18 @@
 Have python and docker installed on your system.
 
 ## How to install
-Go into your terminal and switch to the directory where you have this project stored.
+Go into your terminal and **switch to the directory where you have this project stored**.
+For example:
+```
+cd Users/Frederik/OnlineShop
+```
 
 ### Run the following commands:
 1. Create the database server
 ```
 docker-compose up
 ```
-2. Create a virtual python environment and install the packages from the Pipfile (Make sure you are currently in the project folder before running this!)
+2. Create a virtual python environment and install the packages from the Pipfile
 ```
 pipenv install
 ```
