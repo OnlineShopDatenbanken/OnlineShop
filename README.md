@@ -9,6 +9,11 @@ For example:
 ```
 cd Users/Frederik/OnlineShop
 ```
+Then Switch to the src directory:
+```
+cd src
+```
+Then run the following command:
 
 ### Run the following commands:
 1. Create the database server
