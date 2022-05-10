@@ -9,10 +9,6 @@ For example:
 ```
 cd Users/Frederik/OnlineShop
 ```
-Then switch to the src directory:
-```
-cd src
-```
 Then run the following commands:
 
 ### Run the following commands:
