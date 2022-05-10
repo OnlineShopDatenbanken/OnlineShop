@@ -36,5 +36,16 @@ The webserver for Django is now running.
 
 Click on the given http link with CTRL+Click and the website should open in your browser.
 
+## How to uninstall
+### Run the following commands:
+1. Delete the database server
+```
+docker-compose down
+```
+2. Remove the virtual environment
+```
+pipenv --rm
+```
+
 ## Database Diagram
 https://dbdiagram.io/d/62610fed1072ae0b6ac1b018
