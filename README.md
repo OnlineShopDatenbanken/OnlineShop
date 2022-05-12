@@ -1,7 +1,11 @@
 # OnlineShop - Datenbanken Projekt
 
 ## Prerequisites
-Have python and docker installed on your system.
+Have python, pipenv and docker installed on your system.
+If you do not have pipenv installed you can do so by running
+```
+pip install pipenv
+```
 
 ## How to install
 Go into your terminal and **switch to the directory where you have this project stored**.
