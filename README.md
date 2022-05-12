@@ -53,3 +53,4 @@ pipenv --rm
 
 ## Database Diagram
 https://dbdiagram.io/d/62610fed1072ae0b6ac1b018
+<img width="1238" alt="image" src="https://user-images.githubusercontent.com/83597198/168022651-c83c92cc-e71f-4e1d-bfed-ef7a94ede252.png">
