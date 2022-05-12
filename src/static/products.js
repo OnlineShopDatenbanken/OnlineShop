@@ -31,3 +31,16 @@ function showRevenueChart(productCategories, revenues)
         }
     });
 }
+
+function showAvgProductRating(avgProductRatings)
+{
+    let sum = 0;
+    for (let i = 0; i < avgProductRatings.length; i++)
+    {
+        console.log(sum);
+    }
+    result = (sum / avgProductRatings.length).toFixed(2);
+
+    avgProductRatingDiv = document.getElementById("avgProductRating");
+    avgProductRatingDiv.textContent += result;
+}

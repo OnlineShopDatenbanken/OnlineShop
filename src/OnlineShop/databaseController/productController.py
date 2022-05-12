@@ -1,5 +1,6 @@
 import psycopg2 as pg2
 from django.db import models
+from decimal import Decimal
 
 class productController:
     def __init__(self, cur):
@@ -7,7 +8,7 @@ class productController:
 
     def getRevenuePerCategory(self):
         self.cur.execute("""SELECT Products.category, SUM(orderitems_prices.price)
-                            FROM OrderItems_Prices
+                            FROM orderitems_prices
                             LEFT JOIN Products
                             ON products.id = orderitems_prices.productId
                             GROUP BY products.category;""")
@@ -20,3 +21,15 @@ class productController:
                             ON products.id = customerreviews.productid
                             GROUP BY products.title
                             ;""")
+
+        res =  self.convertToDictionary(self.cur.fetchall())
+        for dicts in res:
+            dicts['avg'] = round(float(dicts['avg']), 2)
+        return res
+
+    def convertToDictionary(self, res):
+        columns = [col[0] for col in self.cur.description]
+        return [
+            dict(zip(columns, row))
+            for row in res
+        ]

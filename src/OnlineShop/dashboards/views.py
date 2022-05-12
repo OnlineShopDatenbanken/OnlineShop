@@ -39,14 +39,10 @@ def customers(request):
             'noOfNewCustomersPerMonth': [i[0]for i in noOfNewCustomersPerMonthTuples],
             'months': months
         },
-        'percentageOfCustomersWithMinOrder': percentageOfCustomersWithMinOneOrder,
-        'percentageOfCustomersWithNoOrder': percentageOfCustomersWithNoOrder,
+        'percentageOfCustomersWithMinOrder': round(percentageOfCustomersWithMinOneOrder, 2),
+        'percentageOfCustomersWithNoOrder': round(percentageOfCustomersWithNoOrder, 2),
         'topFiveCustomers': topFiveCustomers,
         'numOfCustomersPerCountry': numOfCustomersPerCountry
-        #'numOfCustomersPerCountry': {
-        #    'countries': [i[0]for i in numOfCustomersPerCountry],
-        #    'noOfCustomers': [i[1]for i in numOfCustomersPerCountry]
-        #}
     }
 
     return render(request, 'customers.html', context=dict)
@@ -56,13 +52,16 @@ def products(request):
     revenues = [float(i[1]) for i in revenuePerCategory]
     totalRevenue = sum(revenues)
     categories = [i[0]for i in revenuePerCategory]
+    avgProductRating = contr.productContr.getAverageProductRating()
+    print(avgProductRating)
 
     dict = {
         'graphData': {
             'productCategories': categories,
             'revenues': revenues,
             'totalRevenue': totalRevenue
-        }
+        },
+        'avgProductRating': avgProductRating
     }
 
     return render(request, 'products.html', context=dict)

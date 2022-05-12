@@ -16,6 +16,7 @@
     <div class="printButtonContainer">
         <button class="center" onclick="print();">Print Page</button>
     </div>
+
     <div class="container" id="productRevenueChart">
         <h2 class="containerHeading">Revenue per Category</h2>
         <div id="canvasContainer" class="content flex">
@@ -25,6 +26,11 @@
             </canvas>
         </div>
         <div id="totalRevenue" class="containerHeading">Total revenue: {{ graphData.totalRevenue|safe }}$</div>
+    </div>
+
+    <div class="container flex">
+        <h2 id="avgProductRating" class="containerHeading">The average product rating is: </h2>
+        <script>showAvgProductRating({{ avgProductRating|safe }});</script>
     </div>
 </body>
 </html>
