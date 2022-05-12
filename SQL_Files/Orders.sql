@@ -224,7 +224,7 @@ INSERT INTO OrderItems(orderId, productId, quantity) Values
 DROP TABLE IF EXISTS OrderItems_Prices;
 CREATE TABLE OrderItems_Prices AS
 /* Cast in SELECT Statement not working; Result of calculation is an integer */
-SELECT OrderItems.orderId as orderId, CAST(OrderItems.quantity AS DECIMAL(12, 2)) * Products.price AS price
+SELECT OrderItems.orderId as orderId, Products.id as productId, CAST(OrderItems.quantity AS DECIMAL(12, 2)) * Products.price AS price
 FROM OrderItems, Products
 WHERE OrderItems.productId = Products.id;
 
