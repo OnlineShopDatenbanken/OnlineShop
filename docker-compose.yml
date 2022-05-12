@@ -18,11 +18,3 @@ services:
     restart: always
     ports:
       - 8080:8080
-      
-  pythonproject:
-    image: pythonproject
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-    ports:
-      - 8000:8000

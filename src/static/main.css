@@ -89,3 +89,14 @@ h1 {
     width: 100%;
     height: 100%;
 }
+
+.avgTableValue {
+    text-align: right;
+}
+.avgTableTitle {
+    text-align: left;
+}
+
+th {
+    padding-bottom: 1%;
+}
