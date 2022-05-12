@@ -6,6 +6,7 @@ If you do not have pipenv installed you can do so by running
 ```
 pip install pipenv
 ```
+Although this project uses a postgres database, postgres is not required to be installed. The database is setup in a docker container.
 
 ## How to install
 Go into your terminal and **switch to the directory where you have this project stored**.
