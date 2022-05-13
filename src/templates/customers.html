@@ -58,7 +58,7 @@
                 <input type="submit" value="Submit" name="submitBtn">
             </label>
         </form>
-        <canvas id="customerDevelopment" class="content" width="100" height="30vh">
+        <canvas id="customerDevelopment" class="content" width="100%" height="30vh">
             <script>showCustomersChart({{ graphData.noOfNewCustomersPerMonth|safe }},
                 {{ graphData.noOfCustomersPerMonth|safe }}, {{ graphData.months|safe }});</script>
         </canvas>
