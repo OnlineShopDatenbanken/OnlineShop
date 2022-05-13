@@ -100,3 +100,13 @@ h1 {
 th {
     padding-bottom: 1%;
 }
+
+footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+footer > h2 {
+    width: 100%;
+    text-align: center;
+}
