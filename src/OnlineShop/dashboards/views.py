@@ -19,9 +19,9 @@ def customers(request):
     for i in range(len(noOfCustomersPerMonthTuples)):
         months.append(str(int(noOfCustomersPerMonthTuples[i][1])) + '/' + str(int(noOfCustomersPerMonthTuples[i][2])))
 
-    monthsRaw = []
-    for i in range(len(noOfCustomersPerMonthTuples)):
-        monthsRaw.append(tuple[noOfCustomersPerMonthTuples[i][1], noOfCustomersPerMonthTuples[i][2]])
+    # monthsRaw = []
+    # for i in range(len(noOfCustomersPerMonthTuples)):
+    #     monthsRaw.append(tuple[noOfCustomersPerMonthTuples[i][1], noOfCustomersPerMonthTuples[i][2]])
 
     if (request.GET.get("submitBtn")):
         minAge = request.GET.get("minAge")
