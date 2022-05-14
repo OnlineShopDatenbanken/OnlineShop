@@ -2,7 +2,7 @@ function Init() {
 }
 
 function allOrdersList(allOrders) {
-    table = document.getElementById("allOrdersTable");
+    table = document.getElementById("allOrders");
     trHeader = document.createElement("tr");
 
     thId = document.createElement("th");
@@ -20,26 +20,27 @@ function allOrdersList(allOrders) {
 
     table.appendChild(trHeader);
 
-    for (let i = 0; i < allOrders.length; i++) {
-        tr = document.createElement("tr");
-        tr.setAttribute("id", allOrders[i].id);
-    }
+    // for (let i = 0; i < allOrders.length; i++) {
+    //     tr = document.createElement("tr");
+    //     tr.setAttribute("id", allOrders[i].id);
+    // }
 
     console.log(allOrders);
 
     for (let i = 0; i < allOrders.length; i++) {
-        tdId = document.createElement("th");
-        tdId.textContent = allOrders[i].id;
+        trCurr = document.createElement("tr");
+        thId = document.createElement("th");
+        thId.textContent = allOrders[i].id;
 
-        tdCustomer = document.createElement("th");
-        tdCustomer.textContent = allOrders[i].firstName + allOrders[i].lastName;
+        thCustomer = document.createElement("th");
+        thCustomer.textContent = allOrders[i].firstName + allOrders[i].lastName;
 
-        tdPrice = document.createElement("th");
-        tdPrice.textContent = allOrders[i].totalPrice;
+        thPrice = document.createElement("th");
+        thPrice.textContent = allOrders[i].orderItems_prices;
 
-        tr.appendChild(tdId);
-        tr.appendChild(tdCustomer);
-        tr.appendChild(tdPrice);
+        trCurr.appendChild(tdId);
+        trCurr.appendChild(tdCustomer);
+        trCurr.appendChild(tdPrice);
 
         table.appendChild(tr);
     }

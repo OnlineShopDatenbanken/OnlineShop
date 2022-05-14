@@ -9,8 +9,8 @@ class orderController:
         self.cur = cur
 
     def getAllOrders(self):
-        self.cur.execute("""SELECT * FROM orders, customers
-                            WHERE orders.customerId = customers.id;""")
+        self.cur.execute("""SELECT * FROM orders_complete JOIN customers ON orders_complete.customerId = customers.id""")
+
         return self.convertToDictionary(self.cur.fetchall())
 
     def convertToDictionary(self, res):
