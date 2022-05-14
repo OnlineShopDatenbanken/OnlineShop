@@ -26,4 +26,22 @@ function allOrdersList(allOrders) {
     }
 
     console.log(allOrders);
+
+    for (let i = 0; i < allOrders.length; i++) {
+        tdId = document.createElement("th");
+        tdId.textContent = allOrders[i].id;
+
+        tdCustomer = document.createElement("th");
+        tdCustomer.textContent = allOrders[i].firstName + allOrders[i].lastName;
+
+        tdPrice = document.createElement("th");
+        tdPrice.textContent = allOrders[i].totalPrice;
+
+        tr.appendChild(tdId);
+        tr.appendChild(tdCustomer);
+        tr.appendChild(tdPrice);
+
+        table.appendChild(tr);
+    }
+
 }
