@@ -110,3 +110,7 @@ footer > h2 {
     width: 100%;
     text-align: center;
 }
+
+#allOrders tr {
+    cursor: pointer;
+}

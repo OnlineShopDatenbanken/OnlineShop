@@ -6,7 +6,7 @@ function allOrdersList(allOrders) {
     trHeader = document.createElement("tr");
 
     thId = document.createElement("th");
-    thId.textContent = "ID";
+    thId.textContent = "Order-ID";
 
     thCustomer = document.createElement("th");
     thCustomer.textContent = "Customer";
@@ -29,6 +29,10 @@ function allOrdersList(allOrders) {
 
     for (let i = 0; i < allOrders.length; i++) {
         trCurr = document.createElement("tr");
+        trCurr.addEventListener("click", function handleClick(event)
+        {
+            alert("Test");
+        });
         thId = document.createElement("th");
         thId.textContent = allOrders[i].id;
 

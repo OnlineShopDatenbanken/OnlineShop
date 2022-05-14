@@ -16,6 +16,14 @@ class orderController:
             dicts['totalprice'] = round(float(dicts['totalprice']), 2)
         return res
 
+    def getOrderProducts(self, id):
+        self.cur.execute("""SELECT * FROM orderitems JOIN products ON orderitems.productId = products.id""")
+
+        res = self.convertToDictionary(self.cur.fetchall())
+        for dicts in res:
+            dicts['price'] = round(float(dicts['price']), 2)
+        return res
+
     def convertToDictionary(self, res):
         columns = [col[0] for col in self.cur.description]
         return [
