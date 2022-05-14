@@ -33,16 +33,16 @@ function allOrdersList(allOrders) {
         thId.textContent = allOrders[i].id;
 
         thCustomer = document.createElement("th");
-        thCustomer.textContent = allOrders[i].firstName + allOrders[i].lastName;
+        thCustomer.textContent = allOrders[i].firstname + " " + allOrders[i].lastname;
 
         thPrice = document.createElement("th");
-        thPrice.textContent = allOrders[i].orderItems_prices;
+        thPrice.textContent = allOrders[i].totalprice + "$";
 
-        trCurr.appendChild(tdId);
-        trCurr.appendChild(tdCustomer);
-        trCurr.appendChild(tdPrice);
+        trCurr.appendChild(thId);
+        trCurr.appendChild(thCustomer);
+        trCurr.appendChild(thPrice);
 
-        table.appendChild(tr);
+        table.appendChild(trCurr);
     }
 
 }
