@@ -53,7 +53,6 @@ def products(request):
     totalRevenue = sum(revenues)
     categories = [i[0]for i in revenuePerCategory]
     avgProductRating = contr.productContr.getAverageProductRating()
-    print(avgProductRating)
 
     dict = {
         'graphData': {
