@@ -67,6 +67,7 @@ def products(request):
 
 def orders(request):
     allOrders = contr.orderContr.getAllOrders()
+    orderProducts = contr.orderContr.getOrderProducts()
 
     dict = {
         'allOrders': allOrders

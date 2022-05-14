@@ -138,3 +138,7 @@ footer {
     background-color: white;
     border-color: #49BEAA;
 }
+
+#allOrders tr {
+    cursor: pointer;
+}

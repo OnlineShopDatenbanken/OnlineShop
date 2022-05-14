@@ -1,7 +1,7 @@
 function Init() {
 }
 
-function allOrdersList(allOrders) {
+function allOrdersList(allOrders, orderProducts) {
     table = document.getElementById("allOrders");
     trHeader = document.createElement("tr");
 
@@ -31,7 +31,7 @@ function allOrdersList(allOrders) {
         trCurr = document.createElement("tr");
         trCurr.addEventListener("click", function handleClick(event)
         {
-            alert("Test");
+            alert(orderProducts[i].title + " " + orderProducts[i].quantity + " " + orderProducts[i].price);
         });
         thId = document.createElement("th");
         thId.textContent = allOrders[i].id;

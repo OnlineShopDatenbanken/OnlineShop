@@ -16,7 +16,7 @@ class orderController:
             dicts['totalprice'] = round(float(dicts['totalprice']), 2)
         return res
 
-    def getOrderProducts(self, id):
+    def getOrderProducts(self):
         self.cur.execute("""SELECT * FROM orderitems JOIN products ON orderitems.productId = products.id""")
 
         res = self.convertToDictionary(self.cur.fetchall())
