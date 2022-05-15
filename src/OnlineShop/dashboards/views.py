@@ -70,6 +70,7 @@ def orders(request):
     orderProducts = contr.orderContr.getOrderProducts()
 
     dict = {
-        'allOrders': allOrders
+        'allOrders': allOrders,
+        'orderProducts': orderProducts
     }
     return render(request, 'orders.html', context=dict)

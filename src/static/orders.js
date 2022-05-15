@@ -1,3 +1,4 @@
+
 function Init() {
 }
 
@@ -25,13 +26,27 @@ function allOrdersList(allOrders, orderProducts) {
     //     tr.setAttribute("id", allOrders[i].id);
     // }
 
-    console.log(allOrders);
+    //console.log(allOrders);
+    // console.log(orderProducts);
 
     for (let i = 0; i < allOrders.length; i++) {
         trCurr = document.createElement("tr");
         trCurr.addEventListener("click", function handleClick(event)
         {
-            alert(orderProducts[i].title + " " + orderProducts[i].quantity + " " + orderProducts[i].price);
+            // alert(orderProducts[i].title + " " + orderProducts[i].quantity + " " + orderProducts[i].price);
+            // Swal.fire(orderProducts[i].title + " " + orderProducts[i].quantity + " " + orderProducts[i].price)
+            Swal.fire(
+                {   title: "Order Items for Order " + allOrders[i].id,
+                    html: '<table id="orderItemsTable" class="table">' +
+                        '<tr>' +
+                        '<th>Title</th>' +
+                        '<th>Quantity</th>' +
+                        '<th>Price</th>' +
+                        '</tr>' +
+                        '</table>',
+
+                }
+            )
         });
         thId = document.createElement("th");
         thId.textContent = allOrders[i].id;
