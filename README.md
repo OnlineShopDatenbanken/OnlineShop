@@ -1,5 +1,9 @@
 # OnlineShop - Datenbanken Projekt
 
+## Diagram
+![Untitled Diagram drawio](https://user-images.githubusercontent.com/83597198/168484060-2b41725b-d3ac-449f-9c9c-0bb57e2e51b6.png)
+
+
 ## Prerequisites
 Have python (at least version 3.8), pipenv and docker installed on your system.
 If you do not have pipenv installed you can do so by running
