@@ -51,8 +51,9 @@ function allOrdersList(allOrders, orderProducts) {
             // Swal.fire(orderProducts[i].title + " " + orderProducts[i].quantity + " " + orderProducts[i].price)
             // console.log(textVar);
             Swal.fire(
-                {   title: "Order Items for Order " + allOrders[i].id,
-                    html: htmlVar
+                {   title: "Order-Items for Order " + allOrders[i].id,
+                    html: htmlVar,
+                    confirmButtonColor: "#49BEAA"
                 }
             )
         });
