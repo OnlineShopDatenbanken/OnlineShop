@@ -21,14 +21,6 @@ function allOrdersList(allOrders, orderProducts) {
 
     table.appendChild(trHeader);
 
-    // for (let i = 0; i < allOrders.length; i++) {
-    //     tr = document.createElement("tr");
-    //     tr.setAttribute("id", allOrders[i].id);
-    // }
-
-    //console.log(allOrders);
-    // console.log(orderProducts);
-
     for (let i = 0; i < allOrders.length; i++) {
         trCurr = document.createElement("tr");
 
@@ -36,20 +28,13 @@ function allOrdersList(allOrders, orderProducts) {
         {
             let textVar = "";
             let htmlVar = "";
-            // console.log(orderProducts);
-            // console.log(allOrders);
+
             for (let j = 0; j < orderProducts.length; j++) {
                 if (allOrders[i].id == orderProducts[j].orderid) {
-                    //console.log(allOrders[j]);
-                    //console.log(orderProducts[j]);
-                    // console.log(orderProducts[j].title);
                     textVar = orderProducts[j].title + ": " + orderProducts[j].quantity + " pieces" + " - " + orderProducts[j].price*orderProducts[j].quantity + "$";
                     htmlVar = htmlVar + "<p>" + textVar + "</p>";
                 }
             }
-            // alert(orderProducts[i].title + " " + orderProducts[i].quantity + " " + orderProducts[i].price);
-            // Swal.fire(orderProducts[i].title + " " + orderProducts[i].quantity + " " + orderProducts[i].price)
-            // console.log(textVar);
             Swal.fire(
                 {   title: "Order-Items for Order " + allOrders[i].id,
                     html: htmlVar,
