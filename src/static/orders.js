@@ -43,7 +43,7 @@ function allOrdersList(allOrders, orderProducts) {
                     //console.log(allOrders[j]);
                     //console.log(orderProducts[j]);
                     // console.log(orderProducts[j].title);
-                    textVar =orderProducts[j].title + ": " + orderProducts[j].quantity + " pieces" + " - " + orderProducts[j].price*orderProducts[j].quantity + "$";
+                    textVar = orderProducts[j].title + ": " + orderProducts[j].quantity + " pieces" + " - " + orderProducts[j].price*orderProducts[j].quantity + "$";
                     htmlVar = htmlVar + "<p>" + textVar + "</p>";
                 }
             }
