@@ -48,13 +48,14 @@ https://dbdiagram.io/d/62610fed1072ae0b6ac1b018
 
 ## Manual Install and Run
 ### Run the following commands:
+Open the root directory of this repository in your terminal. Type the following commands in your terminal.
 1. Create the database server
 ```
-docker-compose up
+cd src && docker-compose up
 ```
 2. Create a virtual python environment and install the packages from the Pipfile
 ```
-pipenv install
+cd .. && pipenv install
 ```
 3. Run the virtual environment
 ```
