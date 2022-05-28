@@ -30,6 +30,8 @@ startServer.sh
 ```
 There is no console output confirming that the webserver was created. Do not close the terminal window. Just wait a few seconds and then open ```http://127.0.0.1:8000/``` in your browser. You should now see the home screen of the website.
 
+****IF THIS STEP DOES NOT WORK FOR YOU: Go to the manual installation instruction and manually run the last two code snippets****
+
 ## How to Uninstall
 The database and the virtual environment including its installed python packages will be completely removed from your system.
 ```
