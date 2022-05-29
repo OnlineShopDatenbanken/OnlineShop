@@ -1,7 +1,0 @@
-{
-  "name": "OnlineShop",
-  "version": "1.0.0",
-  "dependencies": {
-    "sweetalert2": "^11.4.14"
-  }
-}

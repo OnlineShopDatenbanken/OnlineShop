@@ -1,11 +1,5 @@
-function printData(allWarehouses, warehouseProducts){
-    console.log(allWarehouses);
-    console.log(warehouseProducts);
-}
 
 function allWarehousesList(allWarehouses, warehouseProducts){
-    console.log(allWarehouses);
-
     table = document.getElementById("allWarehouses");
     trHeader = document.createElement("tr");
 

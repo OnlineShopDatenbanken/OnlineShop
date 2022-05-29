@@ -1,7 +1,3 @@
-function Init()
-{
-}
-
 function showRevenueChart(productCategories, revenues)
 {
     const ctx2 = document.getElementById('revenuePerCategory').getContext('2d');

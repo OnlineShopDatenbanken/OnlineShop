@@ -1,7 +1,3 @@
-
-function Init() {
-}
-
 function allOrdersList(allOrders, orderProducts) {
     table = document.getElementById("allOrders");
     trHeader = document.createElement("tr");
