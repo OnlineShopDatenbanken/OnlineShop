@@ -12,6 +12,22 @@
     <link rel="stylesheet" href="{%  static 'main.css' %}">
 </head>
 <body>
-    <script>printData({{ allWarehouses|safe }}, {{ warehouseProducts|safe }})</script>
+    <h1>Warehouses</h1>
+    <div class="buttonContainer">
+        <a href="home" class="navLink">Home</a>
+        <a href="customers" class="navLink">Customers</a>
+        <a href="products" class="navLink">Products</a>
+        <a href="orders" class="navLink">Orders</a>
+        <button class="btn" onclick="print();">Print Page</button>
+    </div>
+
+    <div class="container flex">
+        <div>
+            <h2 class="containerHeading">All Warehouses</h2>
+            <table id="allWarehouses" class="table clickableTable">
+                <script>allWarehousesList({{ allWarehouses|safe }}, {{ warehouseProducts|safe }})</script>
+            </table>
+        </div>
+    </div>
 </body>
 </html>

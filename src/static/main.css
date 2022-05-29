@@ -139,6 +139,6 @@ footer {
     border-color: #49BEAA;
 }
 
-#allOrders tr {
+.clickableTable tr {
     cursor: pointer;
 }

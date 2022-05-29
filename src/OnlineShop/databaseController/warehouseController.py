@@ -13,7 +13,7 @@ class warehouseController:
         return self.convertToDictionary(self.cur.fetchall())
 
     def getWarehouseProducts(self):
-        self.cur.execute("""SELECT * FROM warehouseItems JOIN products ON warehouseItems.productId = products.id""")
+        self.cur.execute("""SELECT * FROM warehouseItems JOIN (SELECT products.title, products.id FROM products) AS warehouseProducts ON warehouseItems.productId = warehouseProducts.id""")
         return self.convertToDictionary(self.cur.fetchall())
 
     def convertToDictionary(self, res):
