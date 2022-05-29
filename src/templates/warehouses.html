@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Shop - Warehouses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300" rel="stylesheet">
+    {%load static %}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.14"></script>
+    <script src="{% static 'warehouses.js' %}"></script>
+    <link rel="stylesheet" href="{%  static 'main.css' %}">
+</head>
+<body>
+    <script>printData({{ allWarehouses|safe }}, {{ warehouseProducts|safe }})</script>
+</body>
+</html>

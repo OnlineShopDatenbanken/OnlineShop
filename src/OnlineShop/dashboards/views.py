@@ -74,3 +74,13 @@ def orders(request):
         'orderProducts': orderProducts
     }
     return render(request, 'orders.html', context=dict)
+
+def warehouses(request):
+    allWarehouses = contr.warehouseContr.getAllWarehouses()
+    warehouseProducts = contr.warehouseContr.getWarehouseProducts()
+
+    dict = {
+        'allWarehouses': allWarehouses,
+        'warehouseProducts': warehouseProducts
+    }
+    return render(request, 'warehouses.html', context=dict)
